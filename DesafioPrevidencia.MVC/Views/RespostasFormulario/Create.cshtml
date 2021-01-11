@@ -1,0 +1,73 @@
+﻿@model DesafioPrevidencia.MVC.Models.RespostasFormularioModel
+@{
+    ViewBag.Title = "Formulário de perfil";
+}
+
+<h2>Análise de Perfil</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Veja qual seu perfil de investidor</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.RespostaPrazoAplicacao, "Qual o prazo que poderá deixar o valor aplicado?", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.RadioButtonFor(m => m.RespostaPrazoAplicacao, 0, new { htmlAttributes = new { @class = "form-control" } }) Menos de 1 ano
+                @Html.RadioButtonFor(m => m.RespostaPrazoAplicacao, 5, new { htmlAttributes = new { @class = "form-control" } }) Menos de 5 anos
+                @Html.RadioButtonFor(m => m.RespostaPrazoAplicacao, 10, new { htmlAttributes = new { @class = "form-control" } }) Seis anos ou mais
+                @Html.ValidationMessageFor(model => model.RespostaPrazoAplicacao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.RespostaPossibilidadePerda, "Como você reagiria a eventuais perdas na sua aplicação?", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.RadioButtonFor(m => m.RespostaPossibilidadePerda, 0, new { htmlAttributes = new { @class = "form-control" } }) Resgataria ou mudaria a carteira
+                @Html.RadioButtonFor(m => m.RespostaPossibilidadePerda, 5, new { htmlAttributes = new { @class = "form-control" } }) Aguardaria, porém não por muito tempo
+                @Html.RadioButtonFor(m => m.RespostaPossibilidadePerda, 10, new { htmlAttributes = new { @class = "form-control" } }) Manteria a carteira
+                @Html.ValidationMessageFor(model => model.RespostaPossibilidadePerda, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RespostaResgate, "Qual a previsão de resgate em anos?", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.RadioButtonFor(m => m.RespostaResgate, 0, new { htmlAttributes = new { @class = "form-control" } }) 10 anos
+                @Html.RadioButtonFor(m => m.RespostaResgate, 5, new { htmlAttributes = new { @class = "form-control" } }) 20 anos
+                @Html.RadioButtonFor(m => m.RespostaResgate, 10, new { htmlAttributes = new { @class = "form-control" } }) Mais de 20 anos
+                @Html.ValidationMessageFor(model => model.RespostaResgate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RespostaObjetivos, "Qual o seu objetivo com a aplicação?", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.RadioButtonFor(m => m.RespostaObjetivos, 0, new { htmlAttributes = new { @class = "form-control" } }) Obter rentabilidade
+                @Html.RadioButtonFor(m => m.RespostaObjetivos, 5, new { htmlAttributes = new { @class = "form-control" } }) Juntar e resgatar antes de aposentar
+                @Html.RadioButtonFor(m => m.RespostaObjetivos, 10, new { htmlAttributes = new { @class = "form-control" } }) Utilizar a renda na aposentadoria
+                @Html.ValidationMessageFor(model => model.RespostaObjetivos, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RespostaRenda, "Qual valor será aplicado?", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.RadioButtonFor(m => m.RespostaRenda, 0, new { htmlAttributes = new { @class = "form-control" } }) Até 10 mil
+                @Html.RadioButtonFor(m => m.RespostaRenda, 5, new { htmlAttributes = new { @class = "form-control" } }) Entre 10 mil e 50 mil
+                @Html.RadioButtonFor(m => m.RespostaRenda, 10, new { htmlAttributes = new { @class = "form-control" } }) Mais de 50 mil
+                @Html.ValidationMessageFor(model => model.RespostaRenda, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Responder Formulário" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+

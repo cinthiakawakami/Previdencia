@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Previência";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @if (Request.IsAuthenticated)
+        {
+            <br />
+            <p>Bem Vindo(a) @HttpContext.Current.User.Identity.Name</p>
+            using (Html.BeginForm("Logout", "Usuario", FormMethod.Post, new { id = "logoutForm" }))
+            {
+                <a href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
+            }
+            @Html.ActionLink("Dados do Usuario", "Index", "Usuario")
+        }
+        else
+        {
+            <br />
+            <p>Para acessar nosso sistema é necessário estar logado.  @Html.ActionLink("Cadastro", "RegistrarUsuario", "Usuario") ou  @Html.ActionLink("Login", "Login", "Usuario") </p>
+
+        }
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Seus Investimentos</h2>
+        <p>
+            Saiba mais sobre como investimos seus recursos e tenha a possibilidade de mudar a composição da carteira de seus investimentos.
+        </p>
+        <p>
+            @Html.ActionLink("Ver sua carteira de investimentos", "Index", "Carteira")
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Suas Solicitações</h2>
+        <p>Veja todas as solicitações que foram feitas.</p>
+        <p>
+            @Html.ActionLink("Ver solicitações", "Index", "Solicitacao")
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Perfil de Investidor</h2>
+        <p>Responda algumas perguntas para saber qual seu perfil de investidor.</p>
+        <p>
+            @Html.ActionLink("Formulário de perfil de investidor", "Edit", "RespostasFormulario")
+        </p>
+    </div>
+</div>

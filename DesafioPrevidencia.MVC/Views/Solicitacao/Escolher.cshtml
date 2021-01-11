@@ -1,0 +1,59 @@
+﻿@model DesafioPrevidencia.MVC.Models.SolicitacaoModel
+@{
+    ViewBag.Title = "Escolher";
+}
+
+<h2>Solicitações do Usuário</h2>
+
+<div>
+    <h4>Solicitacao</h4>
+    <hr />
+    @if (ViewBag.Pendente == null)
+    {
+        if (Model != null)
+        {
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.DataSolicitacao)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DataSolicitacao)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Tipo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Tipo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Protocolo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Protocolo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Status)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Status)
+                </dd>
+
+            </dl>
+        }
+        else
+        {
+            <p>Essa página não pode ser acessada diretamente.</p>
+        }
+    }
+    else
+    {
+        @ViewBag.Pendente
+    }
+</div>

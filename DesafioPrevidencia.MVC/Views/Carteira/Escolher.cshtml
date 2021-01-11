@@ -1,0 +1,59 @@
+﻿@model IEnumerable<DesafioPrevidencia.MVC.Models.CarteiraModel>
+
+@{
+    ViewBag.Title = "Carteiras";
+}
+
+<h2>Carteiras Indicadas< w/h2>
+<p>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Erro!</strong>@ViewBag.Message
+        </div>
+    }
+</p>
+@using (Html.BeginForm("Escolher", "Solicitacao", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <table class="table">
+        <tr>
+            <td></td>
+            <th>
+                @Html.DisplayNameFor(model => model.Composicao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rentabilidade)
+            </th>
+            <th>
+                @Html.Label("Perfil")
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.RadioButton("Selecionada", item.CarteiraId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Composicao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rentabilidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PerfilInvestidor.Nome)
+                </td>
+            </tr>
+        }
+    </table>
+
+    <input type="submit" value="Enviar" />
+}

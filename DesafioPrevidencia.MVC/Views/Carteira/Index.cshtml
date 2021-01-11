@@ -1,0 +1,71 @@
+﻿@model DesafioPrevidencia.MVC.Models.CarteiraModel
+
+@{
+    ViewBag.Title = "Carteira";
+}
+
+<h2>Carteira</h2>
+
+<div>
+    <h4>Sua Carteira</h4>
+    <hr />
+    @if (Model.CarteiraId > 0)
+    {
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Composicao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Composicao)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Rentabilidade)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Rentabilidade)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Descricao)
+            </dd>
+
+            <dt>
+                @Html.Label("Perfil Investidor")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PerfilInvestidor.Nome)
+            </dd>
+
+        </dl>
+    }
+    else
+    {
+        <p>@ViewBag.Mensagem</p>
+
+        if (ViewBag.Logado == "S")
+        {
+            <p>Formulário de Perfil : @ViewBag.Formulario</p>
+        }
+    }
+</div>
+
+@if (ViewBag.Formulario == "Respondido" || Model.PerfilInvestidorId > 0)
+{
+    <p>@Html.ActionLink("Escolher/Alterar Carteira", "Escolher", "Carteira", new { CarteiraId = Model.CarteiraId }, null)</p>
+}
+else
+{
+    <p>Para escolher uma carteira, você precisa responder o formulário de perfil de investidor</p>
+}
+@if (ViewBag.Logado == "S")
+{
+    @Html.ActionLink("Preencher/Alterar Formulário de Perfil", "Edit", "RespostasFormulario")
+}

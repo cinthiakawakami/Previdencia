@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{48BC2E23-3D73-4305-8A6B-445C85A4DEE4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DesafioPrevidencia.Dominio</RootNamespace>
+    <AssemblyName>DesafioPrevidencia.Dominio</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Entidades\Carteira.cs" />
+    <Compile Include="Entidades\PerfilInvestidor.cs" />
+    <Compile Include="Entidades\RespostasFormulario.cs" />
+    <Compile Include="Entidades\Solicitacao.cs" />
+    <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Interfaces\Repositorios\IRespostasFormularioRepositorio.cs" />
+    <Compile Include="Interfaces\Repositorios\IPerfilInvestidorRepositorio.cs" />
+    <Compile Include="Interfaces\Repositorios\ISolicitacaoRepositorio.cs" />
+    <Compile Include="Interfaces\Repositorios\IUsuarioRepositorio.cs" />
+    <Compile Include="Interfaces\Repositorios\ICarteiraRepositorio.cs" />
+    <Compile Include="Interfaces\Repositorios\IRepositorioBase.cs" />
+    <Compile Include="Interfaces\Servicos\IPerfilInvestidorServico.cs" />
+    <Compile Include="Interfaces\Servicos\IRespostasFormularioServico.cs" />
+    <Compile Include="Interfaces\Servicos\ISolicitacaoServico.cs" />
+    <Compile Include="Interfaces\Servicos\IUsuarioServico.cs" />
+    <Compile Include="Interfaces\Servicos\ICarteiraServico.cs" />
+    <Compile Include="Interfaces\Servicos\IServicoBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicos\RespostasFormularioServico.cs" />
+    <Compile Include="Servicos\PerfilInvestidorServico.cs" />
+    <Compile Include="Servicos\UsuarioServico.cs" />
+    <Compile Include="Servicos\SolicitacaoServico.cs" />
+    <Compile Include="Servicos\CarteiraServico.cs" />
+    <Compile Include="Servicos\ServicoBase.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

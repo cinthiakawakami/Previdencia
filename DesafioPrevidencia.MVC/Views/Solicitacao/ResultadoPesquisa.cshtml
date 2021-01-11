@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Resultado da Pesquisa";
+}
+
+<h2>ResultadoPesquisa</h2>
+@{
+    Html.RenderPartial("Pesquisa");
+}
+
+@{
+    Html.RenderPartial("Resultado");
+}
+<p>
+    @Html.ActionLink("Voltar para solicitações", "Index")
+</p>
+

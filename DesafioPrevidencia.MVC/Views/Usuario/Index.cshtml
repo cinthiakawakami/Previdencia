@@ -1,0 +1,56 @@
+﻿@model DesafioPrevidencia.MVC.Models.UsuarioModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Usuário</h2>
+
+<div>
+    <h4>Dados do Usuário</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sobrenome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sobrenome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.Label("Carteira Selecionada")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Carteira.Descricao) @ViewBag.Carteira
+        </dd>
+        <dt>
+            @Html.Label("Perfil de Investidor")
+        </dt>
+        <dd>
+            @ViewBag.PerfilInvesidor
+        </dd>
+    </dl>
+</div>
+<p>
+    @if (ViewBag.PerfilInvesidor != "Sem Perfil, favor responder o formulário")
+    {
+       <p> @Html.ActionLink("Selecionar ou alterar carteira", "Index", "Carteira")</p>
+    }
+    @Html.ActionLink("Preencher/Alterar Formulário de Perfil", "Edit", "RespostasFormulario") |
+</p>
